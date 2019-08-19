@@ -1,0 +1,136 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.slider{
+  display: flex;
+  height: 100vh;
+  margin-bottom: 1rem;
+}
+
+.slider--bg1{
+  background: url('https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  background-size: cover;
+  background-position: center center;
+}
+
+.slider--bg2{
+  background: url('https://images.pexels.com/photos/1227648/pexels-photo-1227648.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  background-size: cover;
+  background-position: center center;
+}
+
+.slider__slides-cnt{
+  position: relative;
+  flex: 1;
+}
+
+.slider__slide{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.slider__title{
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  transform: translateX(-6rem);
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: transform 2s, opacity 2s;
+}
+
+.slider__text{
+  font-size: 1.5rem;
+  font-style: italic;
+  opacity: 0;
+  transform: translateX(-6rem);
+  transition: transform 2s 1s, opacity 2s 1s;
+}
+
+
+.slider__slide--active .slider__title,
+.slider__slide--active .slider__text{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slider__slide--active{
+  visibility: visible;
+}
+
+.dots{
+  display: flex;
+  justify-content: space-between;
+  width: 5rem;
+  list-style-type: none;
+}
+
+.slider__dots{
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dots__dot{
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s, background-color 0.3s
+}
+
+.dots__dot--active{
+  transform: scale(1.2);
+  background-color: white;
+}
+
+.slider__button-prev, .slider__button-next{
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  width: 4rem;
+  transition: background-color 0.5s;
+}
+
+.slider__button-prev:hover, .slider__button-next:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider__button-prev{
+  order: -1;
+}
+
+.slider__button-prev::before{
+  content: '<';
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__button-next{
+}
+
+.slider__button-next::before{
+  content: '>';
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
